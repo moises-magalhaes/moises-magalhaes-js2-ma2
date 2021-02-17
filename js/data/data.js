@@ -1,4 +1,4 @@
-export const books = [
+export let books = [
 	{
 		isbn: "1600506460320",
 		title: "Great book",
