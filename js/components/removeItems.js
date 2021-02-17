@@ -1,5 +1,6 @@
 import { books } from "../data/data.js";
 
+let importedBooks = books;
 /*// when I use this line nothing happens
 
 let books = [
@@ -22,10 +23,12 @@ let books = [
 ]; */
 
 // WHEN I IMPORT BOOKS FROM OTHER DOCUMENT IT SHOWS "BOOKS" IS READ-ONLY
-console.log(books);
+console.log(importedBooks);
 
 function removeBook(removeItem) {
-	const filteredBooks = books.filter((book) => book.title !== removeItem);
+	const filteredBooks = importedBooks.filter(
+		(book) => book.title !== removeItem
+	);
 
 	/*	const filteredBooks = books.filter(filterBooks);
 
@@ -34,8 +37,8 @@ function removeBook(removeItem) {
 			return true;
 		}*/
 
-	books = filteredBooks;
+	importedBooks = filteredBooks;
 }
 
-removeBook(4);
-console.log(books);
+removeBook(2);
+console.log(importedBooks);
