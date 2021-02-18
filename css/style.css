@@ -1,0 +1,11 @@
+.container {
+	display: flex;
+}
+
+.book {
+	background-color: #3a6670;
+	color: aliceblue;
+	padding: 20px 40px;
+	margin: 20px;
+	border-radius: 10px;
+}
