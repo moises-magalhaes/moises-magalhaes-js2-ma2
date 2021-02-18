@@ -33,16 +33,16 @@ export function exportData() {
 }
 
 export function handleClick() {
-	event.target.atributes.toggle("complete");
+	event.target.classList.toggle("complete");
 }
 
 export function removeFromList() {
 	console.log(event);
-	const deleteThisBook = event.target.dataset.book;
+	const deleteThisBook = event.target.dataset.item;
 	console.log(deleteThisBook);
 
-	const newList = exportData.filter(function (book) {
-		if (deleteThisBook !== book) {
+	const newList = importedBooks.filter(function (item) {
+		if (deleteThisBook !== item) {
 			return true;
 		}
 	});
