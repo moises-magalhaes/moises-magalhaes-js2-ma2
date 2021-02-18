@@ -2,21 +2,28 @@ import { books } from "../data/data.js";
 let importedBooks = books;
 console.log(importedBooks);
 
-export function exportData(renderData) {
+export function exportData() {
 	const resultsContainer = document.querySelector(".container");
 
 	resultsContainer.innerHTML = "";
 
-	renderData.forEach(function (book) {
+	importedBooks.forEach(function (book) {
 		resultsContainer.innerHTML += `
                             <li class="book">
                                 <span>
                                     <h3>Title: ${book.title}</h3>
                                     <p>Register: ${book.isbn}</p>
-                                    <button><i  class="fa fa-trash" data-item="${book}"></i></button>
+                                    <button><i  class="fa fa-trash" data-item="${book.title}"></i></button>
                                 </span>                                
                             </li>`;
 	});
+	//This part was not present in the document
+
+	const items = document.querySelectorAll("li span");
+	items.forEach(function (book) {
+		book.addEventListener("click", handleClick);
+	});
+	//The up part was not present
 
 	const removeIcon = document.querySelectorAll("li i");
 
@@ -25,19 +32,22 @@ export function exportData(renderData) {
 	});
 }
 
-export function handleClick(e) {
-	e.target.classList.toggle("complete");
+export function handleClick() {
+	event.target.atributes.toggle("complete");
 }
 
-export function removeFromList(e) {
-	console.log(e);
-	const deleteThisBook = e.target.dataset.book;
+export function removeFromList() {
+	console.log(event);
+	const deleteThisBook = event.target.dataset.book;
+	console.log(deleteThisBook);
 
 	const newList = exportData.filter(function (book) {
 		if (deleteThisBook !== book) {
 			return true;
 		}
 	});
+
+	console.log(newList);
 
 	importedBooks = newList;
 	exportData();
