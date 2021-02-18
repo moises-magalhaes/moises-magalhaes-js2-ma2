@@ -5,10 +5,12 @@ export function exportData(renderData) {
 
 	renderData.forEach(function (book) {
 		resultsContainer.innerHTML += `
-                        <div class="book">
-                            <h3>Title: ${book.title}</h3>
-                            <p>Register: ${book.isbn}</p>
-                            <button>Remove</button>
-                        </div>`;
+                        <li class="book">
+                            <span>
+                                <h3>Title: ${book.title}</h3>
+                                <p>Register: ${book.isbn}</p>
+                                <button class="fa fa-trash"></button>
+                            </span>
+                        </li>`;
 	});
 }
