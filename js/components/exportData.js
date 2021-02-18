@@ -19,9 +19,9 @@ export function exportData() {
 	});
 	//This part was not present in the document
 
-	const items = document.querySelectorAll("li span");
-	items.forEach(function (book) {
-		book.addEventListener("click", handleClick);
+	const items = document.querySelectorAll("button");
+	items.forEach(function (item) {
+		item.addEventListener("click", handleClick);
 	});
 	//The up part was not present
 
