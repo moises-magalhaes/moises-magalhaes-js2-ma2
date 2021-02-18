@@ -1,5 +1,6 @@
 import { books } from "../data/data.js";
 let importedBooks = books;
+console.log(importedBooks);
 
 export function exportData(renderData) {
 	const resultsContainer = document.querySelector(".container");
@@ -32,8 +33,8 @@ export function removeFromList(e) {
 	console.log(e);
 	const deleteThisBook = e.target.dataset.book;
 
-	const newList = exportData.filter(function (item) {
-		if (deleteThisBook !== item) {
+	const newList = exportData.filter(function (book) {
+		if (deleteThisBook !== book) {
 			return true;
 		}
 	});
