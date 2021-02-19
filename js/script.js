@@ -1,15 +1,16 @@
 import { books } from "./data/data.js";
 /*import { removeBook } from "./components/removeItems.js";*/
-import { handleClick } from "./components/exportData.js";
+//import { handleClick } from "./components/exportData.js";
 import { exportData } from "./components/exportData.js";
 import { removeFromList } from "./components/exportData.js";
 
 let importedBooks = books;
 
-async function makeApiCall() {
+async function makeArrayCall() {
 	try {
+		//handleClick(importedBooks);
+		//removeFromList(importedBooks);
 		exportData(importedBooks);
-		handleClick(importedBooks);
 		removeFromList(importedBooks);
 
 		/*for (let i = 0; i < books.length; i++) {
@@ -21,4 +22,4 @@ async function makeApiCall() {
 	}
 }
 
-makeApiCall();
+makeArrayCall();

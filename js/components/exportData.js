@@ -12,17 +12,19 @@ export function exportData() {
                             <li class="book">
                                 <span>
                                     <h3>Title: ${book.title}</h3>
-                                    <p>Register: ${book.isbn}</p>
+                                    <p>Register: ${book.isbn}</p> 
+                                </span> 
                                     <button><i  class="fa fa-trash" data-item="${book.title}"></i></button>
-                                </span>                                
+                                                              
                             </li>`;
 	});
 	//This part was not present in the document
 
-	const items = document.querySelectorAll("button");
+	/*const items = document.querySelectorAll("li span");
 	items.forEach(function (item) {
 		item.addEventListener("click", handleClick);
-	});
+	});*/
+
 	//The up part was not present
 
 	const removeIcon = document.querySelectorAll("li i");
@@ -31,15 +33,12 @@ export function exportData() {
 		eraseThis.addEventListener("click", removeFromList);
 	});
 }
-
-export function handleClick() {
+/*export function handleClick() {
 	event.target.classList.toggle("complete");
-}
+}*/
 
-export function removeFromList() {
-	console.log(event);
-	const deleteThisBook = event.target.dataset.item;
-	console.log(deleteThisBook);
+export function removeFromList(removeThis) {
+	const deleteThisBook = removeThis;
 
 	const newList = importedBooks.filter(function (item) {
 		if (deleteThisBook !== item) {
