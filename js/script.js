@@ -15,7 +15,7 @@ function exportData() {
 									<h3>Title: ${book.title}</h3>
 									<p>Register: ${book.isbn}</p>
 								</span>
-									<i class="fa fa-trash" data-item="${book.title}"></i>
+									<i class="fa fa-trash" onClick='removeFromList("${book.title}")' data-item="${book.title}"></i>
 
 							</li>`;
 	});
