@@ -1,4 +1,5 @@
-import { books } from "../data/data.js";
+import { books } from "../data/books.js";
+
 let importedBooks = books;
 console.log(importedBooks);
 
@@ -9,45 +10,24 @@ export function exportData() {
 
 	importedBooks.forEach(function (book) {
 		resultsContainer.innerHTML += `
-                            <li class="book">
-                                <span>
-                                    <h3>Title: ${book.title}</h3>
-                                    <p>Register: ${book.isbn}</p> 
-                                </span> 
-                                    <button><i  class="fa fa-trash" data-item="${book.title}"></i></button>
-                                                              
-                            </li>`;
-	});
-	//This part was not present in the document
+							<li class="book">
+								<span>
+									<h3>Title: ${book.title}</h3>
+									<p>Register: ${book.isbn}</p>
+								</span>
+									<i class="fa fa-trash" data-item="${book.title}"></i>
 
-	/*const items = document.querySelectorAll("li span");
+							</li>`;
+	});
+
+	const items = document.querySelectorAll(".book");
 	items.forEach(function (item) {
 		item.addEventListener("click", handleClick);
-	});*/
-
-	//The up part was not present
+	});
 
 	const removeIcon = document.querySelectorAll("li i");
 
-	removeIcon.forEach(function (eraseThis) {
-		eraseThis.addEventListener("click", removeFromList);
+	removeIcon.forEach(function (book) {
+		book.addEventListener("click", removeFromList);
 	});
-}
-/*export function handleClick() {
-	event.target.classList.toggle("complete");
-}*/
-
-export function removeFromList(removeThis) {
-	const deleteThisBook = removeThis;
-
-	const newList = importedBooks.filter(function (item) {
-		if (deleteThisBook !== item) {
-			return true;
-		}
-	});
-
-	console.log(newList);
-
-	importedBooks = newList;
-	exportData();
 }

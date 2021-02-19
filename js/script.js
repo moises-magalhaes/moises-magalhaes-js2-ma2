@@ -1,24 +1,63 @@
-import { books } from "./data/data.js";
-/*import { removeBook } from "./components/removeItems.js";*/
-//import { handleClick } from "./components/exportData.js";
-import { exportData } from "./components/exportData.js";
-import { removeFromList } from "./components/exportData.js";
+import { books } from "./data/books.js";
 
 let importedBooks = books;
+console.log(importedBooks);
+
+function exportData() {
+	const resultsContainer = document.querySelector(".container");
+
+	resultsContainer.innerHTML = "";
+
+	importedBooks.forEach(function (book) {
+		resultsContainer.innerHTML += `
+							<li class="book">
+								<span>
+									<h3>Title: ${book.title}</h3>
+									<p>Register: ${book.isbn}</p>
+								</span>
+									<i class="fa fa-trash" data-item="${book.title}"></i>
+
+							</li>`;
+	});
+
+	const items = document.querySelectorAll(".book");
+	items.forEach(function (item) {
+		item.addEventListener("click", handleClick);
+	});
+
+	const removeIcon = document.querySelectorAll("li i");
+
+	removeIcon.forEach(function (book) {
+		book.addEventListener("click", removeFromList);
+	});
+}
+function handleClick(event) {
+	event.target.classList.toggle("complete");
+}
+
+function removeFromList(event) {
+	const deleteThisBook = event.target.dataset.item;
+
+	const newList = importedBooks.filter(function (item) {
+		if (deleteThisBook !== item.title) {
+			return true;
+		}
+	});
+
+	console.log(newList);
+
+	importedBooks = newList;
+	exportData();
+}
 
 async function makeArrayCall() {
 	try {
-		//handleClick(importedBooks);
-		//removeFromList(importedBooks);
 		exportData(importedBooks);
-		removeFromList(importedBooks);
 
-		/*for (let i = 0; i < books.length; i++) {
-			console.log(books[i].isbn);
-		}*/
+		removeFromList(importedBooks);
 	} catch (error) {
 		console.log(error);
-		displayError("error", error, ".container");
+		// displayError("error", error, ".container");
 	}
 }
 
