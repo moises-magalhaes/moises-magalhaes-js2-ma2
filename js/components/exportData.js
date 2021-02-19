@@ -13,7 +13,7 @@ export function exportData() {
                                 <span>
                                     <h3>Title: ${book.title}</h3>
                                     <p>Register: ${book.isbn}</p>
-                                    <button><i  class="fa fa-trash" data-item="${book.title}"></i></button>
+                                    <button onClick='removeFromList("${book.title}")'><i  class="fa fa-trash" data-item="${book.title}"></i></button>
                                 </span>                                
                             </li>`;
 	});
@@ -32,7 +32,7 @@ export function exportData() {
 	});
 }
 
-export function handleClick() {
+function handleClick() {
 	event.target.classList.toggle("complete");
 }
 
