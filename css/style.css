@@ -1,5 +1,5 @@
 .container {
-	display: flex;
+	display: block;
 }
 
 .book {
@@ -8,4 +8,9 @@
 	padding: 20px 40px;
 	margin: 20px;
 	border-radius: 10px;
+}
+
+ul {
+	display: flex;
+	flex-flow: row wrap;
 }
